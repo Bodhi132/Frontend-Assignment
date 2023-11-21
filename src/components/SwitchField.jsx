@@ -11,7 +11,7 @@ const SwitchField = ({ schema }) => {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    if (schema.hasOwnProperty('validate') && schema.validate.hasOwnProperty('required')){
+    if (schema.hasOwnProperty('validate') && schema.validate.hasOwnProperty('required')) {
       setreq(schema.validate.required)
     }
     else {
@@ -42,7 +42,7 @@ const SwitchField = ({ schema }) => {
 
   return (
     <div className='flex items-center'>
-      {!req && 
+      {!req &&
         <div>
           <label className="relative inline-flex justify-start items-center cursor-pointer">
             <input type="checkbox" value="" className="sr-only peer" onChange={toggleVisibility} />
@@ -60,7 +60,12 @@ const SwitchField = ({ schema }) => {
           <h4 className="block font-sans text-xl leading-snug tracking-normal text-inherit antialiased">
             {schema.label}
           </h4>
-          <Info schema={schema}/>
+          {
+            schema.description.length > 0 &&
+            (
+              <Info schema={schema} />
+            )
+          }
         </div>
 
       }

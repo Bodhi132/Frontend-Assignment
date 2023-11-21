@@ -22,6 +22,10 @@ const RadioFields = ({ schema }) => {
 
   const [selectedTab, setSelectedTab] = useState(schema.validate.defaultValue);
 
+  const toggleVisibility = () => {
+    setIsVisible(!isVisible);
+  };
+
   const handleChange = (val) => {
     setSelectedTab(val);
     dispatch(updateField({ field:schema.jsonKey,value: val }))
